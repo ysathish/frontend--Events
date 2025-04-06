@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <h2>Register</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label>username:</label>
+        <input type="username" [(ngModel)]="user.username" name="username" class="form-control" required />
+      </div>
+  
+      <div class="mb-3">
+        <label>Password:</label>
+        <input type="password" [(ngModel)]="user.password" name="password" class="form-control" required />
+      </div>
+  
+      <div class="mb-3">
+        <label>Role:</label>
+        <select [(ngModel)]="user.role" name="role" class="form-select" required>
+          <option value="USER">User</option>
+          <option value="ADMIN">Admin</option>
+        </select>
+      </div>
+  
+      <button class="btn btn-success" type="submit">Register</button>
+    </form>
+  </div>
+  

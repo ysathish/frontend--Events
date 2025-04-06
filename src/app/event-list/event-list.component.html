@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Event List</h2>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by event name"
+        [(ngModel)]="searchName"
+        (input)="filterEvents()"
+      />
+    </div>
+    <div class="col-md-6 text-end">
+      <button class="btn btn-secondary" (click)="resetFilters()">Reset</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let event of filteredEvents">
+      <div class="card event-card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ event.name }}</h5>
+          <p class="card-text">{{ event.description }}</p>
+          <p><strong>Location:</strong> {{ event.location }}</p>
+          <p><strong>Date:</strong> {{ event.date }}</p>
+          <a [routerLink]="['/events/edit', event.id]" class="btn btn-sm btn-warning me-2">Edit</a>
+          <button (click)="deleteEvent(event.id)" class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

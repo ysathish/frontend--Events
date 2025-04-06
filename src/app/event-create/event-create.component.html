@@ -1,0 +1,55 @@
+<div class="container mt-4">
+    <h2>Create New Event</h2>
+  
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="needs-validation">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input
+          id="name"
+          formControlName="name"
+          type="text"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+        />
+        <div class="invalid-feedback" *ngIf="submitted && f['name'].errors?.['required']">
+          Name is required.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea id="description" formControlName="description" class="form-control"></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label for="date" class="form-label">Date:</label>
+        <input
+          id="date"
+          formControlName="date"
+          type="date"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['date'].errors }"
+        />
+        <div class="invalid-feedback" *ngIf="submitted && f['date'].errors?.['required']">
+          Date is required.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="location" class="form-label">Location:</label>
+        <input
+          id="location"
+          formControlName="location"
+          type="text"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['location'].errors }"
+        />
+        <div class="invalid-feedback" *ngIf="submitted && f['location'].errors?.['required']">
+          Location is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+  

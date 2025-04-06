@@ -1,0 +1,20 @@
+.event-card {
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+    background-color: #fff;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    color: #555;
+  }
+  
