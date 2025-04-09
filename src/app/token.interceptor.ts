@@ -13,6 +13,14 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('token');
 
+    // Skip adding Authorization header for login and register
+    if (
+      req.url.includes('/api/auth/login') ||
+      req.url.includes('/api/auth/register')
+    ) {
+      return next.handle(req);
+    }
+
     if (token) {
       const cloned = req.clone({
         setHeaders: {
@@ -20,8 +28,8 @@ export class TokenInterceptor implements HttpInterceptor {
         }
       });
       return next.handle(cloned);
-    } else {
-      return next.handle(req);
     }
+
+    return next.handle(req);
   }
 }
