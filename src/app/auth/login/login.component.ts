@@ -14,10 +14,11 @@ export class LoginComponent {
 
   onSubmit(): void {
     this.authService.login(this.user).subscribe({
-      next: (res) => {
-        // res is the raw JWT string (not an object), so store it directly
-        localStorage.setItem('token', res);
-        this.router.navigate(['/events']);
+      next: (res:string) => { // Handle the response as a string (JWT)
+        // const parsed = JSON.parse(res);
+      // localStorage.setItem('token', parsed.token);
+        localStorage.setItem('token', res); // Store the token
+        this.router.navigate(['/events']); // Navigate to events page
       },
       error: () => alert('Login failed'),
     });

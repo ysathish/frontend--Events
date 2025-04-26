@@ -1,0 +1,13 @@
+<h2>Account Settings</h2>
+<form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+  <label>Name:</label>
+  <input type="text" formControlName="name" /><br /><br />
+  
+  <label>New Password:</label>
+  <input type="password" formControlName="newPassword" /><br /><br />
+  
+  <button type="submit">Update Account</button>
+</form>
+
+<hr />
+<button (click)="logout()">Logout</button>

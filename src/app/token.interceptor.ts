@@ -12,6 +12,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('token');
+    console.log('Using token:', token);
 
     // Skip adding Authorization header for login and register
     if (

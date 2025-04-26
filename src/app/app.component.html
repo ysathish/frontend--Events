@@ -1,10 +1,18 @@
 <nav class="navbar navbar-expand navbar-light bg-light mb-4">
-    <div class="container">
-      <a class="navbar-brand" routerLink="/">Event Manager</a>
-      <div class="navbar-nav">
-        <a class="nav-link" routerLink="/events">Events</a>
-        <a class="nav-link" routerLink="/create">Create Event</a>
-      </div>
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Event Manager</a>
+
+    <div class="navbar-nav me-auto">
+      <a class="nav-link" routerLink="/events">Events</a>
+      <a class="nav-link" routerLink="/create">Create Event</a>
     </div>
-  </nav>
+
+    <!-- Right-side links, shown only if logged in -->
+    <div class="navbar-nav" *ngIf="isLoggedIn()">
+      <a class="nav-link" routerLink="/account">Account</a>
+      <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout</a>
+    </div>
+  </div>
+</nav>
+
 <router-outlet></router-outlet>
